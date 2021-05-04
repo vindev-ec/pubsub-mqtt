@@ -1,0 +1,241 @@
+<!-- Menú -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="#"
+    ><img
+      src="../../../assets/img/logo.png"
+      alt="VinDev"
+      class="img-fluid"
+      width="100"
+  /></a>
+</nav>
+
+<div id="wrapper" class="container-fluid bg-light">
+  <div class="row">
+    <div class="col-md-6 accordion mt-3" id="cardBroker">
+      <div class="card">
+        <div class="card-header" id="headerBroker">
+          <span
+            class="titleCard"
+            data-toggle="collapse"
+            data-target="#collapseBroker"
+            aria-expanded="true"
+            aria-controls="collapseBroker"
+            title="Mostrar / Ocultar"
+            >Broker&nbsp;<i class="text-success fas fa-eye"></i
+          ></span>
+          <span class="{{ colorStatusBroker }} float-right">{{
+            statusBroker
+          }}</span>
+        </div>
+        <div
+          class="card-body collapse show"
+          id="collapseBroker"
+          aria-labelledby="headerBroker"
+          data-parent="#cardBroker"
+        >
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtHost"
+                  >Host <span class="obligatorio">*</span></label
+                >
+                <input
+                  type="text"
+                  name="txtHost"
+                  placeholder="0.0.0.0 / iot.com.ec"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="host"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtPort"
+                  >Puerto <span class="obligatorio">*</span></label
+                >
+                <input
+                  type="text"
+                  name="txtPort"
+                  placeholder="9001"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="port"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtUsuario">Usuario</label>
+                <input
+                  type="text"
+                  name="txtUsuario"
+                  placeholder="username"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="username"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtPass">Contraseña</label>
+                <input
+                  type="text"
+                  name="txtPass"
+                  placeholder="****************"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="password"
+                />
+              </div>
+            </div>
+            <div class="col-12 border-top">
+              <span class="btn btn-info float-right mt-2" (click)="conectar()"
+                >Conectar</span
+              >
+              <span
+                class="btn btn-outline-danger float-right mr-2 mt-2"
+                (click)="desconectar()"
+                >Desconectar</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 accordion mt-3" id="cardPub">
+      <div class="card">
+        <div class="card-header" id="headerPub">
+          <span
+            class="titleCard"
+            data-toggle="collapse"
+            data-target="#collapsePub"
+            aria-expanded="true"
+            aria-controls="collapsePub"
+            title="Mostrar / Ocultar"
+            >Publicar&nbsp;<i class="text-success fas fa-eye"></i
+          ></span>
+        </div>
+        <div
+          class="card-body collapse show"
+          id="collapsePub"
+          aria-labelledby="headerPub"
+          data-parent="#cardPub"
+        >
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtHost"
+                  >Tema <span class="obligatorio">*</span></label
+                >
+                <input
+                  type="text"
+                  name="txtTema"
+                  placeholder="Topic"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="pubTopic"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txtMensaje"
+                  >Mensaje <span class="obligatorio">*</span></label
+                >
+                <input
+                  type="text"
+                  name="txtMensaje"
+                  placeholder="Contenido de la publicación"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="pubMessage"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 border-top">
+              <span class="btn btn-info float-right mt-2" (click)="publicar()"
+                >Publicar</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-10 offset-md-1 accordion mt-3" id="cardSub">
+      <div class="card">
+        <div class="card-header" id="headerSub">
+          <span
+            class="titleCard"
+            data-toggle="collapse"
+            data-target="#collapseSub"
+            aria-expanded="true"
+            aria-controls="collapseSubr"
+            title="Mostrar / Ocultar"
+            >Subscripción&nbsp;<i class="text-success fas fa-eye"></i
+          ></span>
+        </div>
+        <div
+          class="card-body collapse show"
+          id="collapseSub"
+          aria-labelledby="headerSub"
+          data-parent="#cardSub"
+        >
+          <div class="row mt-3">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="txtSubscripcion"
+                  >Temas <span class="obligatorio">*</span></label
+                >
+                <input
+                  type="text"
+                  name="txtSubscripcion"
+                  placeholder="Tema1;Tema2;Tema3"
+                  autocomplete="off"
+                  autofocus
+                  class="form-control form-control-sm"
+                  [(ngModel)]="subTopics"
+                />
+              </div>
+            </div>
+            <div
+              class="col-10 offset-1 border"
+              style="
+                height: 520px;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                padding-top: 10px;
+              "
+            >
+              <div *ngFor="let item of messages">
+                <span class="text-info">{{ item.topic.toString() }}: </span>
+                <span>{{ item.message.toString() }}</span
+                ><br />
+              </div>
+            </div>
+            <div class="col-12 border-top mt-4">
+              <span class="btn btn-info float-right mt-2" (click)="subscribir()"
+                >Sincronizar</span
+              >
+              <span
+                class="btn btn-outline-warning float-right mr-2 mt-2"
+                (click)="limpiar()"
+                >limpiar</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

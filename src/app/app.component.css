@@ -1,0 +1,59 @@
+body {
+  overflow-x: hidden;
+}
+
+#wrapper {
+  margin-top: 65px;
+  padding: 12px;
+  height: 100%;
+}
+
+.navbar-custom {
+  -webkit-box-shadow: 0px 0.25px 10px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 0.25px 10px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0.25px 10px 0px rgba(0, 0, 0, 0.6);
+  background-color: #002c73;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text,
+.navbar-custom .navbar-nav .nav-link,
+.navbar-custom .btnToggler {
+  color: #fff;
+}
+
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: rgb(223, 223, 223);
+}
+
+input[type="text"] {
+  color: #000;
+}
+
+.card-body {
+  padding: 12px;
+}
+
+.card-header .titleCard {
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card-header .titleCard i {
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+#headerBroker,
+#headerSub,
+#headerPub {
+  background-color: #fff;
+}
+
+.obligatorio {
+  color: red;
+}
